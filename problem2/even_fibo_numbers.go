@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	fibslice := []int{0, 1}
 
-	for i_ := range 4000000 {
+	for range [4000000]struct{}{} {
 		fib(&fibslice)
 	}
 	fmt.Println(fibslice)
