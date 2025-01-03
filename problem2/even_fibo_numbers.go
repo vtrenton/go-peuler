@@ -16,3 +16,7 @@ func fib(fibslice *[]int) {
 	next := s[len(s)-2] + s[len(s)-1]
 	*fibslice = append(s, next)
 }
+
+func iseven(n int) bool {
+	return n%2 == 0
+}
