@@ -4,9 +4,11 @@ import "fmt"
 
 func main() {
 	var last int
-	for i := 1; i <= 4000000; i += last {
+	i := 1
+	for i <= 4000000 {
+		last = i
 		fmt.Println(last)
 		fmt.Println(i)
-		last = i
+		i += last
 	}
 }
