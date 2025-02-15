@@ -7,7 +7,7 @@ func main() {
 	fibo := fibogen(limit)
 	fibeven := fibeven(fibo)
 
-	fmt.Println(fibeven[len(fibeven)-1])
+	fmt.Println(sumfibeven(fibeven))
 
 }
 
@@ -36,4 +36,12 @@ func fibeven(fibo []int) []int {
 		}
 	}
 	return fibeven
+}
+
+func sumfibeven(fibeven []int) int {
+	var sum int
+	for _, v := range fibeven {
+		sum += v
+	}
+	return sum
 }
