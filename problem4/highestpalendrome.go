@@ -1,9 +1,14 @@
 package main
 
 func main() {
-	for i := 100; i <= 999; i++ {
-		for j := 100; i <= 999; i++ {
-
+	var pal []int
+	for i := 100; i <= 999; i++ { //what the fuck
+		if isPrime() {
+			for j := 100; j <= 999; j++ {
+				if isPrime() {
+					pal = append(pal, j)
+				}
+			}
 		}
 	}
 }
