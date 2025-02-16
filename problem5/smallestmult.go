@@ -1,12 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	fmt.Println("vim-go")
+	const limit = 20
+	num := limit
+	var i int
+	for {
+		i++
+		fmt.Printf("i is %d\n", i)
+		if evendivbyall(num, limit) {
+			fmt.Println(num)
+			break
+		}
+		num = int(math.Pow(limit, float64(i)))
+		fmt.Printf("num is %d\n", num)
+	}
+	fmt.Println(num)
 }
 
-func evendivisiblebyall(limit int) bool {
+func evendivbyall(num, limit int) bool {
 	for i := 1; i <= limit; i++ { // need to make sure we start at 1
 		if num%i != 0 {
 			return false
