@@ -26,7 +26,6 @@ func main() {
 				fmt.Printf("shits broke yo: %s", err)
 				break
 			}
-			//skip if list contains zero
 
 			// get multisum
 			prod := multislice(intslice)
