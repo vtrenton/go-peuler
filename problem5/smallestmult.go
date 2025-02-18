@@ -21,6 +21,7 @@ func getprimestolimit(limit int) []int {
 			primes = append(primes, i)
 		}
 	}
+
 	return primes
 }
 
@@ -33,31 +34,39 @@ func isprime(n int) bool {
 			return false
 		}
 	}
+
 	return true
 }
 
 func getexponents(primes []int, limit int) []int {
-	var exponent int
 	var primeexp []int
-	for prime := range primes {
-		for exponent = 1; int(math.Pow(float64(prime), float64(exponent))) < limit; exponent++ {
+	for _, prime := range primes {
+		exponent := 1
+		for {
+			// look forward and see if we can interate without a bust!
+			next := int(math.Pow(float64(prime), float64(exponent+1)))
+			if next <= limit {
+				exponent++
+			} else {
+				break
+			}
 		}
 		primeexp = append(primeexp, exponent)
 	}
+
 	return primeexp
 }
 
 func getlcm(primes, exponents []int) int {
 	result := 1
 	var multiples []int
-	for prime := range primes {
-		for exp := range exponents {
-			mult := int(math.Pow(float64(prime), float64(exp)))
-			multiples = append(multiples, mult)
-		}
+
+	for i := range len(primes) {
+		pow := int(math.Pow(float64(primes[i]), float64(exponents[i])))
+		multiples = append(multiples, pow)
 	}
 
-	for multiple := range multiples {
+	for _, multiple := range multiples {
 		result *= multiple
 	}
 
