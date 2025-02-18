@@ -16,41 +16,60 @@ func main() {
 	for {
 		// get the slice
 		strslice := grail[minindex:maxindex]
-		// convert to int
-		intslice := intconv([]rune(strslice))
-		// get multisum
-		prod := multislice(intslice)
 
-		if prod > topmult {
-			topmult = prod
-			topslice = intslice
+		// skip if contains 0
+		if !containszero(strslice) {
+
+			// convert to int
+			intslice, err := intconv(strslice)
+			if err != nil {
+				fmt.Printf("shits broke yo: %s", err)
+				break
+			}
+			//skip if list contains zero
+
+			// get multisum
+			prod := multislice(intslice)
+
+			if prod > topmult {
+				topmult = prod
+				topslice = intslice
+			}
 		}
 
 		if maxindex+1 > len(grail) {
-			minindex++
-			maxindex++
-		} else {
 			break
 		}
+		minindex++
+		maxindex++
 	}
 	fmt.Printf("The winner is %v with product of %d!\n", topslice, topmult)
 }
+func containszero(block string) bool {
+	for i := 0; i < len(block); i++ {
+		if block[i] == '0' {
+			return true
+		}
+	}
 
-func intconv(strslice []rune) []int {
+	return false
+}
+
+func intconv(strslice string) ([]int, error) {
 	var output []int
 	for _, i := range strslice {
 		num, err := strconv.Atoi(string(i))
 		if err != nil {
-			fmt.Errorf("wasnt able to convert %s to an int shits broke yoi\n", i)
+			return nil, err
 		}
 		output = append(output, num)
 	}
 
-	return output
+	return output, nil
 }
 
 func multislice(s []int) int {
-	var result int
+	result := 1
 	for _, i := range s {
 		result *= i
 	}
