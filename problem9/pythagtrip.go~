@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 	//magic_num := 1000
 	//magic_limit := int(math.Sqrt(float64(magic_num)))
@@ -26,10 +24,8 @@ func main() {
 
 	for {
 		prod = a + b + c
-		fmt.Println(prod)
-		if prod == 999 {
-			fmt.Printf("a: %d, b: %d, c: %d\n", a, b, c)
-			fmt.Printf("%d\n", square(a)*square(b)*square(c))
+		if prod == 1000 {
+			result = square(a) * square(b) * square(c)
 			break
 		} else {
 			a++
