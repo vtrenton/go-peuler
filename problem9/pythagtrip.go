@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	//magic_num := 1000
@@ -16,25 +18,33 @@ func main() {
 
 	// RULE: a + b + c = 1000; b - a == n; c - b == n + 2
 
-	// the goal is 3 numbers next to each other that == 1000
+	// if a and c are odd -> the result will be even
 
 	//var result int
-	var prod int
-	a := 1
-	b := a + 1
-	c := b + 1
+	nums := [3]int{1, 2, 3}
 
 	for {
-		prod = a + b + c
-		fmt.Println(prod)
-		if prod == 999 {
-			fmt.Printf("a: %d, b: %d, c: %d\n", a, b, c)
-			fmt.Printf("%d\n", square(a)*square(b)*square(c))
+		var sum int
+
+		fmt.Println(nums)
+
+		for _, v := range nums {
+			sum += v
+		}
+		fmt.Println(sum)
+		if sum >= 1000 {
+			var squares [3]int
+			sum = 0
+			for i, v := range nums {
+				squares[i] = square(v)
+				sum += squares[i]
+			}
+			fmt.Println(sum)
 			break
 		} else {
-			a++
-			b++
-			c++
+			for i, v := range nums {
+				nums[i] = v + 2
+			}
 		}
 	}
 }
