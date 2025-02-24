@@ -1,20 +1,34 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
-	fmt.Println("vim-go")
+
 }
+
+// Triangle numbers are in a patter of diff between each number is plus one
+/*
+0
+1 = 1
+3 = 2
+6 = 3
+10
+15
+21
+*/
 
 func calctriagle(size int) int {
-	var triange int
-	for i := range size {
-		triange += i
+	var triangle int
+	for diff := range size {
+		triangle += diff
 	}
-	return triange
 }
+
+//func calctriagle(size int) int {
+//	var triange int
+//	for i := range size {
+//		triange += i
+//	}
+//	return triange
+//}
 
 func getfactors(n int) []int {
 	var factors []int
