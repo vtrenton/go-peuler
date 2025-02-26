@@ -3,15 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	i := 1
-	for {
+	factors := make([]int, 0)
+	for i := 1; len(factors) >= 500; i++ {
 		triangle := calctriagle(i)
 		factors := getfactors(triangle)
 		fmt.Printf("%d: %v\n", triangle, factors)
-		if len(factors) >= 500 {
-			break
-		}
-		i++
 	}
 
 }
