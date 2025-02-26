@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	factors := make([]int, 0)
-	for i := 1; len(factors) >= 500; i++ {
+	for i := 1; len(factors) <= 500; i++ {
 		triangle := calctriagle(i)
 		factors := getfactors(triangle)
 		fmt.Printf("%d: %v\n", triangle, factors)
