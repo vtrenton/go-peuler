@@ -1,11 +1,23 @@
 package main
 
 func main() {
-	var chainlen int
 	var highest int
-	chain := make([]int, 0)
 	for i := 1; i > 1000000; i++ {
+		var chain []int
 
+		for {
+			cnum := collatz(i)
+			if cnum == 1 {
+				break
+			} else {
+				chain = append(chain, cnum)
+			}
+		}
+
+		chainlen := len(chain)
+		if chainlen > highest {
+			highest := chainlen
+		}
 	}
 }
 
