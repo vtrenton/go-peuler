@@ -1,13 +1,17 @@
 package main
 
+import "fmt"
+
 func main() {
 	var highest int
-	for i := 1; i > 1000000; i++ {
+	for i := 1; i < 1000000; i++ {
 		var chain []int
 
 		for {
 			cnum := collatz(i)
+			fmt.Println(cnum)
 			if cnum == 1 {
+				fmt.Println("pop")
 				break
 			} else {
 				chain = append(chain, cnum)
@@ -16,9 +20,10 @@ func main() {
 
 		chainlen := len(chain)
 		if chainlen > highest {
-			highest := chainlen
+			highest = chainlen
 		}
 	}
+	fmt.Println(highest)
 }
 
 func collatz(n int) int {
