@@ -18,8 +18,9 @@ func fibogen(limit int) []int {
 
 	for i <= limit {
 		fibo = append(fibo, i)
-		if len(fibo) >= 2 {
-			last = fibo[len(fibo)-2]
+		fiblen := len(fibo)
+		if fiblen >= 2 {
+			last = fibo[fiblen-2]
 		} else {
 			last = 0
 		}
