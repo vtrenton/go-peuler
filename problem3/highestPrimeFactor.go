@@ -16,6 +16,8 @@ func main() {
 
 }
 
+// NOTE: This function only gets factors up to the Sqrt
+// of the number passed in. Not all factors are returned
 func getFactors(base int) []int {
 	var factors []int
 	limit := math.Sqrt(float64(base))
