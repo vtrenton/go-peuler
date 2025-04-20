@@ -1,21 +1,35 @@
 package main
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
 
 func TestSmallestMult(t *testing.T) {
 	primelimits := []struct {
-		Name string
-		limit int
-		expected []int
+		Description string
+		limit       int
+		expected    []int
 	}{
 		{
-			"get primes up to 1000",
-			1000,
+			"get primes up to 100",
+			100,
+			[]int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97},
+		},
+		{
+			"return nothing if input number < 2",
+			1,
 			[]int{},
-		}
+		},
 	}
 
-	t.Run("get primes up to a specified limit", func(t *testing.T) {
+	for _, test := range primelimits {
+		t.Run(test.Description, func(t *testing.T) {
+			got := getprimestolimit(test.limit)
 
-	})
+			if !slices.Equal(got, test.expected) {
+				t.Errorf("got %d but wanted %d", got, test.expected)
+			}
+		})
+	}
 }
