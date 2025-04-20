@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func TestSmallestMult(t *testing.T) {
-	primelimits := []struct {
+func TestGetPrimesToLimit(t *testing.T) {
+	cases := []struct {
 		Description string
 		limit       int
 		expected    []int
@@ -23,7 +23,7 @@ func TestSmallestMult(t *testing.T) {
 		},
 	}
 
-	for _, test := range primelimits {
+	for _, test := range cases {
 		t.Run(test.Description, func(t *testing.T) {
 			got := getprimestolimit(test.limit)
 
