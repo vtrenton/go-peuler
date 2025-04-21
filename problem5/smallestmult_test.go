@@ -33,3 +33,33 @@ func TestGetPrimesToLimit(t *testing.T) {
 		})
 	}
 }
+
+func TestIsPrime(t *testing.T) {
+	cases := []struct {
+		description string
+		input       int
+		result      bool
+	}{
+		{
+			"test 7 a simple prime number",
+			7,
+			true,
+		},
+		{
+			"test 1 which is not a prime number",
+			1,
+			false,
+		},
+	}
+
+	for _, test := range cases {
+		t.Run(test.description, func(t *testing.T) {
+			got := isprime(test.input)
+			want := test.result
+
+			if got != want {
+				t.Errorf("given %d, got %v but want %v", test.input, got, want)
+			}
+		})
+	}
+}
