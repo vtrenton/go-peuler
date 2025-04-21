@@ -63,3 +63,17 @@ func TestIsPrime(t *testing.T) {
 		})
 	}
 }
+
+func TestExponents(t *testing.T) {
+	cases := []struct {
+		description string
+		primes      []int
+		limit       int
+		result      []int
+	}{}
+	for _, test := range cases {
+		t.Run(test.description, func(t *testing.T) {
+			//todo
+		})
+	}
+}
