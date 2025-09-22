@@ -29,14 +29,14 @@ func fibogen(limit int) []int {
 	return fibo
 }
 
-func geteven(fibo []int) []int {
-	var fibeven []int
-	for _, v := range fibo {
+func geteven(list []int) []int {
+	var evenlist []int
+	for _, v := range list {
 		if v%2 == 0 {
-			fibeven = append(fibeven, v)
+			evenlist = append(evenlist, v)
 		}
 	}
-	return fibeven
+	return evenlist
 }
 
 func sumslice(fibeven []int) int {
