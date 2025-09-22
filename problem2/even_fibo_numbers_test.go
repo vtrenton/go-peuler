@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestFiboNumbers(t *testing.T) {
+func TestFibogen(t *testing.T) {
 	t.Run("fibogen generates all the correct finonacci numbers up to the limit", func(t *testing.T) {
 		got := fibogen(13)
 		want := []int{1, 1, 2, 3, 5, 8, 13}
@@ -14,7 +14,9 @@ func TestFiboNumbers(t *testing.T) {
 			t.Errorf("got %d but wanted %d", got, want)
 		}
 	})
+}
 
+func Testgeteven(t *testing.T) {
 	t.Run("fibeven will only return even numbers from given input", func(t *testing.T) {
 		input := []int{1, 1, 2, 3, 5, 8, 13, 21, 34}
 
@@ -25,7 +27,9 @@ func TestFiboNumbers(t *testing.T) {
 			t.Errorf("got %d, want %d", got, want)
 		}
 	})
+}
 
+func TestSumslice(t *testing.T) {
 	t.Run("sumfibeven will output the correct sum", func(t *testing.T) {
 		input := []int{2, 8, 34}
 

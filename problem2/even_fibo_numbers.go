@@ -29,7 +29,7 @@ func fibogen(limit int) []int {
 	return fibo
 }
 
-func fibeven(fibo []int) []int {
+func geteven(fibo []int) []int {
 	var fibeven []int
 	for _, v := range fibo {
 		if v%2 == 0 {
@@ -39,7 +39,7 @@ func fibeven(fibo []int) []int {
 	return fibeven
 }
 
-func sumfibeven(fibeven []int) int {
+func sumslice(fibeven []int) int {
 	var sum int
 	for _, v := range fibeven {
 		sum += v
