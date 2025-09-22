@@ -64,16 +64,25 @@ func TestIsPrime(t *testing.T) {
 	}
 }
 
-func TestExponents(t *testing.T) {
+func TestGetExponents(t *testing.T) {
 	cases := []struct {
 		description string
 		primes      []int
 		limit       int
 		result      []int
-	}{}
-	for _, test := range cases {
-		t.Run(test.description, func(t *testing.T) {
-			//todo
+	}{
+		{description: "assure value is not out of bounds", primes: []int{}, limit: 50, result: []int{}},
+	}
+	for _, val := range cases {
+		t.Run(val.description, func(t *testing.T) {
+			got := getexponents(val.primes, val.limit)
+			want := val.result
+
+			if !slices.Equal(got, want) {
+				t.Errorf("%s failed! got %v, want %v\n", got, want)
+			}
 		})
 	}
 }
+
+func TestGetlcm(t *testing.T) {}
